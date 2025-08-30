@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   CheckCircle,
@@ -9,8 +9,19 @@ import {
   Layers,
   ArrowRight,
 } from "lucide-react";
+import GetStartedModal from "@/components/GetStartedModalProps";
 
 export default function Pricing() {
+  const [showGetStartedModal, setShowGetStartedModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowGetStartedModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowGetStartedModal(false);
+  };
+
   const plans = [
     {
       name: "Free",
@@ -108,7 +119,10 @@ export default function Pricing() {
               >
                 About
               </Link>
-              <button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition">
+              <button
+                onClick={handleOpenModal}
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition"
+              >
                 Get Started
               </button>
             </div>
@@ -316,6 +330,11 @@ export default function Pricing() {
           </div>
         </div>
       </footer>
+      {/* GetStartedModal */}
+      <GetStartedModal
+        isOpen={showGetStartedModal}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

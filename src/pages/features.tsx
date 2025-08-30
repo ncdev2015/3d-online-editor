@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   Layers,
@@ -10,18 +10,27 @@ import {
   Download,
   Shield,
   Cloud,
-  Smartphone,
   Cpu,
   Eye,
   Move3D,
-  Lightbulb,
   ArrowRight,
   Play,
   CheckCircle,
   Sparkles,
 } from "lucide-react";
+import GetStartedModal from "@/components/GetStartedModalProps";
 
 export default function Features() {
+  const [showGetStartedModal, setShowGetStartedModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowGetStartedModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowGetStartedModal(false);
+  };
+
   const heroFeatures = [
     {
       icon: <Move3D className="w-12 h-12 text-purple-400" />,
@@ -261,7 +270,10 @@ export default function Features() {
               >
                 About
               </Link>
-              <button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition">
+              <button
+                onClick={handleOpenModal}
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition"
+              >
                 Get Started
               </button>
             </div>
@@ -583,6 +595,11 @@ export default function Features() {
           </div>
         </div>
       </footer>
+      {/* GetStartedModal */}
+      <GetStartedModal
+        isOpen={showGetStartedModal}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

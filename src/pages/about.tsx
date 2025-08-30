@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   Layers,
@@ -10,8 +10,19 @@ import {
   Heart,
   ArrowRight,
 } from "lucide-react";
+import GetStartedModal from "@/components/GetStartedModalProps";
 
 export default function About() {
+  const [showGetStartedModal, setShowGetStartedModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowGetStartedModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowGetStartedModal(false);
+  };
+
   const teamMembers = [
     {
       name: "Alex Rivera",
@@ -111,7 +122,10 @@ export default function About() {
               <Link href="/about" className="text-white font-semibold">
                 About
               </Link>
-              <button className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition">
+              <button
+                onClick={handleOpenModal}
+                className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-blue-600 transition"
+              >
                 Get Started
               </button>
             </div>
@@ -382,6 +396,11 @@ export default function About() {
           </div>
         </div>
       </footer>
+      {/* GetStartedModal */}
+      <GetStartedModal
+        isOpen={showGetStartedModal}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

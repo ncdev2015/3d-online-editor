@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Zap,
-  Globe,
-  Layers,
-  Sparkles,
-  Play,
-  CheckCircle,
-} from "lucide-react";
+import { Layers } from "lucide-react";
 import GetStartedModal from "@/components/GetStartedModalProps";
 
 export default function Home() {
