@@ -556,7 +556,10 @@ export default function Features() {
             browser-based tools.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group bg-gradient-to-r from-purple-500 to-blue-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition flex items-center justify-center">
+            <button
+              onClick={handleOpenModal}
+              className="group bg-gradient-to-r from-purple-500 to-blue-500 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition flex items-center justify-center"
+            >
               Start Free Trial
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
             </button>

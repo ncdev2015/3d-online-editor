@@ -273,9 +273,11 @@ export default function Home() {
                 →
               </span>
             </button>
-            <button className="text-white border-2 border-white/20 px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition">
-              View Pricing Plans
-            </button>
+            <Link href="/pricing">
+              <button className="text-white border-2 border-white/20 px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition">
+                View Pricing Plans
+              </button>
+            </Link>
           </div>
         </div>
       </section>
